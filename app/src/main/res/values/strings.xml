@@ -1,0 +1,112 @@
+﻿<resources>
+    <string name="appName">CheapMedicine Free</string>
+
+    <string-array name="mainMenuItems">
+        <item>Лекарства и аналоги</item>
+        <item>Сканировать штрих-код</item>
+        <item>Заявка на поиск аналога</item>
+        <item>Предложить аналог</item>
+        <item>Справка</item>
+        <item>Выход</item>
+    </string-array>
+
+    <string name="buttonUpdateDb">Обновить базу лекарств и аналогов</string>
+    <string name="buttonSendRequest">Оставить заявку</string>
+    <string name="buttonAddAnalog">Добавить новый аналог к лекарству</string>
+    <string name="buttonComparePrices">Сравнить цены</string>
+    <string name="buttonAnnotation">Аннотация</string>
+    <string name="n_name_underline"><u>Препарат</u>:</string>
+    <string name="n_analog_underline"><u>Аналоги и похожие лекарства</u>:</string>
+    <string name="n_name">Препарат:</string>
+    <string name="n_analog">Аналоги:</string>
+    <string name="n_version_info">Информация о базе лекарств</string>
+    <string name="n_one_analog">Аналог:</string>
+    <string name="t_selectAptek">Выберите аптеку</string>
+    <string name="t_bd_version">Версия базы: </string>
+    <string name="t_bd_drugs_with_analogs">Общее количество лекарств: </string>
+    <string name="t_bd_servises">Сервисов для сравнения цен: </string>
+    <string name="t_selectDrug">\tВведите первые буквы названия препарата или выберите из списка</string>
+    <string name="t_filterSusp">Фильтр по действующему веществу</string>
+    <string name="t_update_DB">Обновить базу данных</string>
+    <string name="mes_updateOK">Обновление базы лекарств успешно завершено! </string>
+    <string name="mes_updateCANCEL">Ошибка при обновлении! Изменения в базу не внесены</string>
+    <string name="mes_updateNOTNES">Новых обновлений нет</string>
+    <string name="mes_updateFATAL">
+        Произошла фатальная ошибка. Пожалуйста, попробуйте ещё раз или переустановите приложение.
+    </string>
+    <string name="t_makeApplic">
+        \tЕсли вы не нашли нужного Вам препарата в базе, то Вы можете оставить заявку на поиск
+        аналога к лекарству. Все найденные лекарства и их аналоги после проверки добавляются
+        в новую версию базы данных. Следите за обновлениями!
+    </string>
+    <string name="t_add_analog">
+        \tВы можете помочь другим с поиском аналогов лекарств или добавить новую пару
+        лекарство-аналог. Все найденные лекарства и их аналоги после проверки добавляются
+        в новую версию базы данных. Следите за обновлениями!
+    </string>
+    <string name="t_compare_cost">
+        Чтобы посмотреть инструкцию к применению для лекарства щёлкните на его названии.
+        &lt;br&gt;
+        Для сравнения цен, выберите аптеку или сеть аптек. Далее нажмите
+        кнопку  &lt;b&gt;\"Сравнить цены\"&lt;/b&gt;(нужен интернет).
+         &lt;br&gt;
+    </string>
+        <string name="tv_addNew_OK">
+        Ваша заявка принята
+    </string>
+        <string name="tv_addNew_ERROR">
+        При обработке произошла ошибка. Скорее всего, отсутствует доступ к сети Интернет. Пожалуйста,
+            проверьте наличие соединения и попробуйте ещё раз
+    </string>
+
+    <string name="tv_NO_DATA">
+        нет данных
+    </string>
+
+    <string name="db_open_FATAL">
+        При загрузке базы данных произошла фатальная ошибка. Пожалуйста, попробуйте ещё раз или переустановите приложение.
+    </string>
+
+    <string name="tv_splachScreen">
+        \tИнформация о лекарствах, предоставленная в данном приложении, носит исключительно ОЗНАКОМИТЕЛЬНЫЙ характер и не является руководством к лечению. Используйте 	незнакомые Вам препараты только после консультации с лечащим врачом! 
+    </string>
+
+    <string name="tv_copyright">Copyright © Konstantin Chervyakov 2016 All rights reserved</string>
+
+    <string name="action_search">Поиск</string>
+    <string name="splash_pic_name">splash_logo</string>
+    <string name="no_data">н/д</string>
+    <string name="pic_tab">mi_tub</string>
+    <string name="s_title">Дешёвая медицина:\nнедорогие аналоги лекарств</string>
+
+    <string name="dialog_site">Веб-сайт:</string>
+    <string name="dialog_phone">Телефоны:</string>
+    <string name="dialog_city">Местоположение:</string>
+    <string name="dialog_title">Контактная информация</string>
+    <string name="dialog_close">Закрыть</string>
+
+    <string name="tv_close_diag">Вы уверены, что хотите выйти?</string>
+
+    <string name="tv_barcode_help">Направьте объектив камеры Вашего телефона так, чтобы штрих-код оказался внутри прямоугольника видоискателя</string>
+    <string name="tv_notfound">Лекарство с таким штрих-кодом не найдено в базе. Оставить заявку на поиск аналога к этому препарату?</string>
+    <string name="tv_demo_barcode_part1">В бесплатной <b>Free</b> версии приложения поиск лекарств по штрих-коду работает в ограниченном режиме! Вы можете воспользоваться этой функцией </string>
+    <string name="tv_demo_barcode_part2"> раз.\nДля использования поиска лекарств по штрих-коду без ограничений установите <b>Pro</b> версию приложения.</string>
+
+    <string name="tv_analog_in_active_substance">(действующее вещество, показания)</string>
+    <string name="tv_analog_in_farmgroup">(показания)</string>
+
+    <string name="banner_ad_unit_id1">ca-app-pub-2122233319995800/9318367973</string>
+    <string name="banner_ad_unit_id2">ca-app-pub-2122233319995800/3551035971</string>
+    <string name="banner_ad_unit_id3">ca-app-pub-2122233319995800/8064973976</string>
+    <string name="banner_ad_unit_id4">ca-app-pub-2122233319995800/4498314771</string>
+
+    <string name="initialization_exception_connection">The field \'connection\' is not null</string>
+    <string name="null_pointer_exception_connection">Connection was not initialised</string>
+    <string name="button_close">Закрыть</string>
+    <string name="button_continue">Продолжить</string>
+    <string name="button_return">Вернуться</string>
+    <string name="button_yes">Да</string>
+    <string name="button_no">Нет</string>
+    <string name="searchhint_drug_search">Поиск препарата</string>
+
+</resources>

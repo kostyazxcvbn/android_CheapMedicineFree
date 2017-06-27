@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="ru.kpch.cheapmedicine.view_controller.UsersAnalogActivity"
+    android:id="@+id/main_layout_3"
+    style="@style/cm1_layouts">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/t_add_analog"
+        android:id="@+id/tv_help_with_analog"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="180dp"
+        android:id="@+id/lv_add_analog"
+        android:smoothScrollbar="false"
+        android:scrollingCache="false"
+        android:layout_below="@+id/tv_help_with_analog"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/linearLayout"
+        android:fastScrollAlwaysVisible="true"
+        android:scrollIndicators="right"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:contextClickable="false"
+        style="@style/ListView_withoutDeviders"
+        android:background="@drawable/cm1_border_field"
+        android:padding="3dp" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progBar_NewDrugList"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        android:id="@+id/linearLayout"
+        android:paddingTop="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/n_name"
+                android:id="@+id/lv_add_analogDrug"
+                style="@style/s_add_analogNames"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="false"
+                android:layout_alignParentBottom="false"
+                android:gravity="bottom"
+                android:layout_alignBottom="@+id/et_add_analogDrug" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_add_analogDrug"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:maxLength="100"
+                style="@style/EditText_cm"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="false"
+                android:layout_toRightOf="@+id/lv_add_analogDrug"
+                android:layout_toEndOf="@+id/lv_add_analogDrug"
+                android:layout_marginLeft="5dp"
+                android:textColor="#d20000" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/n_one_analog"
+                android:id="@+id/tv_add_analogAnalog"
+                style="@style/s_add_analogNames"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="false"
+                android:layout_alignParentTop="true"
+                android:gravity="bottom"
+                android:layout_alignBottom="@+id/et_add_analogAnalog" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_add_analogAnalog"
+                style="@style/EditText_cm"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="false"
+                android:layout_toEndOf="@+id/tv_add_analogAnalog"
+                android:layout_toRightOf="@+id/tv_add_analogAnalog"
+                android:inputType="textPersonName"
+                android:layout_marginLeft="5dp"
+                android:textColor="#0a7800" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relativeLayout">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/buttonAddAnalog"
+                android:id="@+id/b_addNewPair"
+                style="@style/cm_buttons"
+                android:onClick="onClickAddNew"
+                android:layout_alignParentLeft="true"
+                 />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
