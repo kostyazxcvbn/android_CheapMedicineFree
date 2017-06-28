@@ -17,13 +17,13 @@
             android:src="@drawable/info_aptek_title" />
 
         <TextView
+            android:id="@+id/tv_windowDrugstoreInfoTitle"
+            style="@style/actionBar_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/dialog_title"
-            android:id="@+id/tv_aptek_title"
-            style="@style/actionBar_title"
+            android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/imageView"
-            android:layout_centerVertical="true" />
+            android:text="@string/textDrugstoreContacts" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -40,7 +40,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_aptek_name"
+            android:id="@+id/tv_drugstoreName"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:paddingBottom="5dp"
@@ -49,56 +49,56 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dialog_city"
-            android:id="@+id/tv_city_aptek"
-            android:layout_below="@+id/tv_aptek_name"
+            android:text="@string/textDrugstoreCity"
+            android:id="@+id/tv_drugstoreCity"
+            android:layout_below="@+id/tv_drugstoreName"
             android:paddingLeft="3dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/field_city_aptek"
-            android:layout_toRightOf="@+id/tv_city_aptek"
+            android:id="@+id/field_drugstoreCity"
+            android:layout_toRightOf="@+id/tv_drugstoreCity"
             android:layout_marginLeft="5dp"
-            android:layout_below="@+id/tv_aptek_name" />
+            android:layout_below="@+id/tv_drugstoreName" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dialog_site"
-            android:id="@+id/tv_site"
+            android:text="@string/textDrugstoreSite"
+            android:id="@+id/tv_drugstoreSite"
             android:layout_alignParentTop="false"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/field_city_aptek"
+            android:layout_below="@+id/field_drugstoreCity"
             android:paddingLeft="3dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dialog_phone"
-            android:id="@+id/tv_phone"
-            android:layout_below="@+id/field_site"
+            android:text="@string/textDrugstorePhone"
+            android:id="@+id/tv_drugstorePhone"
+            android:layout_below="@+id/field_drugStoreSite"
             android:layout_alignParentLeft="true"
             android:paddingLeft="3dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/field_site"
+            android:id="@+id/field_drugStoreSite"
             android:layout_alignParentTop="false"
-            android:layout_toRightOf="@+id/tv_site"
+            android:layout_toRightOf="@+id/tv_drugstoreSite"
             android:autoLink="web"
             android:layout_marginLeft="5dp"
-            android:layout_below="@+id/field_city_aptek" />
+            android:layout_below="@+id/field_drugstoreCity" />
 
         <TextView
+            android:id="@+id/field_drugstorePhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/field_phone"
-            android:layout_toRightOf="@+id/tv_phone"
-            android:autoLink="phone"
+            android:layout_below="@+id/field_drugStoreSite"
             android:layout_marginLeft="5dp"
-            android:layout_below="@+id/field_site" />
+            android:layout_toRightOf="@+id/tv_drugstorePhone"
+            android:autoLink="phone" />
     </RelativeLayout>
 
 </RelativeLayout>

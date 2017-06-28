@@ -45,7 +45,7 @@ public class MainActivity extends AppActivity {
 
         setContentView(R.layout.activity_main);
 
-        final String[]menuItems=getResources().getStringArray(R.array.mainMenuItems);
+        final String[]menuItems=getResources().getStringArray(R.array.textMainMenuItems);
 
         ArrayAdapter<String> adapter_mainMenu=new  MainMenuAdapter(this, menuItems);
         ListMainMenu =(ListView)findViewById(R.id.lv_main_menu);
@@ -136,7 +136,7 @@ public class MainActivity extends AppActivity {
         AlertDialog.Builder quitDialog = new android.support.v7.app.AlertDialog.Builder(this);
         quitDialog .setView(v_window_close_content);
 
-        quitDialog.setPositiveButton(getString(R.string.button_yes), new DialogInterface.OnClickListener() {
+        quitDialog.setPositiveButton(getString(R.string.buttonYes), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 isActivityClosed =true;
@@ -144,7 +144,7 @@ public class MainActivity extends AppActivity {
             }
         });
 
-        quitDialog.setNegativeButton(getString(R.string.button_no), new DialogInterface.OnClickListener() {
+        quitDialog.setNegativeButton(getString(R.string.buttonNo), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -189,16 +189,16 @@ public class MainActivity extends AppActivity {
 
             switch(updateState){
                 case UPDATE_SUCCESSFUL:{
-                    updateResultMessage=getString(R.string.mes_updateOK);
+                    updateResultMessage=getString(R.string.messageUpdateSuccess);
                     break;
                 }
                 case NO_UPDATES:{
-                    updateResultMessage=getString(R.string.mes_updateNOTNES);
+                    updateResultMessage=getString(R.string.messageNoUpdates);
                     break;
                 }
                 case UPDATE_ERROR:
                 default: {
-                    updateResultMessage=getString(R.string.mes_updateCANCEL);
+                    updateResultMessage=getString(R.string.messageUpdateError);
                     break;
                 }
             }
@@ -224,7 +224,7 @@ public class MainActivity extends AppActivity {
             field.setText(String.valueOf(rawsCount));
         }
         else{
-            field.setText(R.string.tv_NO_DATA);
+            field.setText(R.string.messageNoData);
         }
     }
 

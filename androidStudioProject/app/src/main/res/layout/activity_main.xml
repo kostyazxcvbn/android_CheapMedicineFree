@@ -45,7 +45,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/n_version_info"
+                android:text="@string/textDatabaseVersionInfo"
                 android:id="@+id/tv_main_info"
                 style="@style/s_add_analogNames"
                 android:textSize="15sp" />
@@ -65,7 +65,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/t_bd_drugs_with_analogs"
+                    android:text="@string/textDrugsCount"
                     android:id="@+id/tv_main_withAnalogs"
                     android:layout_gravity="left|top"
                     android:textSize="13sp" />
@@ -92,7 +92,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/t_bd_servises"
+                    android:text="@string/textDrugstoresCount"
                     android:id="@+id/tv_main_Services"
                     android:layout_gravity="left|center_vertical"
                     android:textSize="13sp" />

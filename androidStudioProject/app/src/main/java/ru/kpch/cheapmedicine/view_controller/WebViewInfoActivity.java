@@ -6,19 +6,12 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebView;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-
 import ru.kpch.cheapmedicine.R;
 import ru.kpch.cheapmedicine.model.Drug;
 
 public class WebViewInfoActivity extends AppActivity {
 
-    InterstitialAd mInterstitialAd;
-
     WebView htmlContainer;
-    boolean isAdmobisClosed=false;
     String parentActivity;
 
     private static String classNameFrom;
@@ -37,18 +30,6 @@ public class WebViewInfoActivity extends AppActivity {
 
         setContentView(R.layout.activity_drug_info);
 
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(getString(R.string.banner_ad_unit_id3));
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                isAdmobisClosed =true;
-            }
-        });
-
-        requestNewInterstitial();
-
         htmlContainer =(WebView)findViewById(R.id.wv_container);
         htmlContainer.getSettings().setBuiltInZoomControls(true);
         htmlContainer.getSettings().setJavaScriptEnabled(true);
@@ -66,12 +47,6 @@ public class WebViewInfoActivity extends AppActivity {
         htmlContainer.loadDataWithBaseURL(null, htmlContainerText, "text/html", "en_US", null);
     }
 
-    private void requestNewInterstitial() {
-        AdRequest adRequest = new AdRequest.Builder().build();
-
-        mInterstitialAd.loadAd(adRequest);
-    }
-
     @Override
     public void onDestroy(){
         super.onDestroy();
@@ -83,32 +58,16 @@ public class WebViewInfoActivity extends AppActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        if(isAdmobisClosed){
-            isAdmobisClosed =false;
-            onBackPressed();
-        }
     }
 
     public void onClickHomeButton(View view) {
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        }
-        else{
-            onBackPressed();
-        }
+        onBackPressed();
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode==KeyEvent.KEYCODE_BACK){
-            if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            }
-            else{
-                onBackPressed();
-            }
-
+            onBackPressed();
             return super.onKeyDown(keyCode, event);
         }
         return false;

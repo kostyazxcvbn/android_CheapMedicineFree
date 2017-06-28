@@ -86,7 +86,7 @@ public class Drug implements Serializable {
         for (Drug analog : analogs) {
             analogsMap.put(AppLogicImpl.KEY_ANALOGNAME, analog);
             analogsMap.put(AppLogicImpl.KEY_PRICE,analog.getPrice());
-            analogsMap.put(AppLogicImpl.KEY_ANALOG_IN, (analog.getActiveSubstance().equals(activeSubstance)?context.getString(R.string.tv_analog_in_active_substance):context.getString(R.string.tv_analog_in_farmgroup)));
+            analogsMap.put(AppLogicImpl.KEY_ANALOG_IN, (analog.getActiveSubstance().equals(activeSubstance)?context.getString(R.string.textFarmgroupActiveSubstanceAnalog):context.getString(R.string.textFarmgroupAnalog)));
         }
         List<HashMap<String,?>> analogsList = new ArrayList<>();
         analogsList.add(analogsMap);

@@ -1,7 +1,6 @@
 package ru.kpch.cheapmedicine.view_controller;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.support.v4.view.MenuItemCompat;
 import android.os.Bundle;
 import android.text.InputType;
@@ -18,9 +17,6 @@ import android.widget.ListView;
 import android.support.v7.widget.SearchView;
 import android.widget.Spinner;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
 import java.util.ArrayList;
 
 import ru.kpch.cheapmedicine.model.ActiveSubstance;
@@ -28,8 +24,6 @@ import ru.kpch.cheapmedicine.R;
 import ru.kpch.cheapmedicine.model.Drug;
 
 public class FindAnalogsActivity extends AppActivity {
-
-    private AdView mAdView;
 
     ListView drugsList;
     Spinner activeSubstanceSpinner;
@@ -54,9 +48,6 @@ public class FindAnalogsActivity extends AppActivity {
 
         setContentView(R.layout.activity_find_analogs);
 
-        MAdLoader mAdLoader=new MAdLoader();
-        mAdLoader.execute();
-
         drugsList =(ListView)findViewById(R.id.lv_names_in_DB);
 
         activeSubstanceFilterCheckBox =(CheckBox)findViewById(R.id.cb_filterSusp);
@@ -66,7 +57,7 @@ public class FindAnalogsActivity extends AppActivity {
 
 
         try {
-            activeSubstanceAdapter=new ArrayAdapter<>(this,R.layout.list_item_active_susp,R.id.tv_sp_item_name,appLogic.getActiveSubstances());
+            activeSubstanceAdapter=new ArrayAdapter<>(this,R.layout.list_item_active_substance,R.id.tv_itemForSpinner,appLogic.getActiveSubstances());
         } catch (NullPointerException e) {
             closeWithFatalError(this);
         }
@@ -154,26 +145,18 @@ public class FindAnalogsActivity extends AppActivity {
 
     @Override
     public void onPause() {
-        if (mAdView != null) {
-            mAdView.pause();
-        }
         super.onPause();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        if (mAdView != null) {
-            mAdView.resume();
-        }
     }
+
     @Override
     public void onDestroy(){
         super.onDestroy();
 
-        if (mAdView != null) {
-            mAdView.destroy();
-        }
         if (isAppWillBeClosed) {
             appLogic.clearAppCache();
         }
@@ -185,7 +168,7 @@ public class FindAnalogsActivity extends AppActivity {
 
         MenuItem searchItem = menu.findItem(R.id.action_search);
         final SearchView  drugsSearch = (SearchView) MenuItemCompat.getActionView(searchItem);
-        drugsSearch.setQueryHint(getString(R.string.searchhint_drug_search));
+        drugsSearch.setQueryHint(getString(R.string.textDrugSearhFieldTip));
         drugsSearch.setImeOptions(EditorInfo.IME_ACTION_DONE);
         drugsSearch.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         drugsSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -229,30 +212,5 @@ public class FindAnalogsActivity extends AppActivity {
         }
         startActivity(intent);
         finish();
-    }
-
-    public class MAdLoader extends AsyncTask<Void, Void, AdRequest>
-    {
-        @Override
-        protected void onPreExecute(){
-            super.onPreExecute();
-            mAdView = (AdView) findViewById(R.id.ad_view3);
-        }
-
-        @Override
-        protected AdRequest doInBackground(Void... params){
-            AdRequest adRequest = new AdRequest.Builder()
-                    //.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                    .build();
-
-            return adRequest;
-        }
-
-
-        @Override
-        protected void onPostExecute(AdRequest a){
-            super.onPostExecute(a);
-            mAdView.loadAd(a);
-        }
     }
 }

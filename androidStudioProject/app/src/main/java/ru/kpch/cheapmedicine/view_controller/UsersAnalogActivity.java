@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import ru.kpch.cheapmedicine.R;
@@ -184,13 +183,13 @@ public class UsersAnalogActivity extends AppActivity {
             switch (result) {
                 case SENDING_SUCCESSFUL:{
                     resultMessageContainer = Toast.makeText(getApplicationContext(),
-                            getString(R.string.tv_addNew_OK), Toast.LENGTH_SHORT);
+                            getString(R.string.messageRequestAccepted), Toast.LENGTH_SHORT);
                     break;
                 }
                 case SENDING_ERROR:
                 default:{
                     resultMessageContainer = Toast.makeText(getApplicationContext(),
-                            getString(R.string.tv_addNew_ERROR), Toast.LENGTH_LONG);
+                            getString(R.string.messageRequestSendingError), Toast.LENGTH_LONG);
                 }
             }
 

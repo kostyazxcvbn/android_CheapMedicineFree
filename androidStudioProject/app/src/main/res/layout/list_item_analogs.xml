@@ -7,19 +7,19 @@
     android:paddingBottom="5dp">
 
     <TextView
+        android:id="@+id/mi_price"
+        style="@style/mi_analogs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/mi_cost"
+        android:layout_alignParentBottom="false"
         android:layout_alignParentRight="true"
-        android:gravity="right"
-        style="@style/mi_analogs"
         android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="false" />
+        android:gravity="right" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/mi_analog_name"
+        android:id="@+id/mi_analogName"
         style="@style/mi_analogs"
         android:maxWidth="190dp"
         android:layout_alignParentRight="false"
@@ -28,15 +28,15 @@
         android:layout_alignParentTop="true" />
 
     <TextView
+        android:id="@+id/tv_analogIn"
+        style="@style/mi_analogs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_analog_in"
-        android:layout_alignParentTop="false"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/mi_analog_name"
-        style="@style/mi_analogs"
-        android:textSize="10dp"
-        android:layout_marginLeft="7dp" />
+        android:layout_alignParentTop="false"
+        android:layout_below="@+id/mi_analogName"
+        android:layout_marginLeft="7dp"
+        android:textSize="10dp" />
 
 
 </RelativeLayout>

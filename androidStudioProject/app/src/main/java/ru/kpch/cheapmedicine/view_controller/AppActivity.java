@@ -37,7 +37,7 @@ public abstract class AppActivity extends AppCompatActivity {
         actionbar.setHomeButtonEnabled(false);
 
         View actionBarView = activity.getLayoutInflater().inflate(R.layout.action_bar_app, null);
-        ImageView image = (ImageView) actionBarView.findViewById(R.id.iv_doc);
+        ImageView image = (ImageView) actionBarView.findViewById(R.id.iv_docImage);
         BitmapFactory.Options opt = new BitmapFactory.Options();
         opt.inPreferredConfig = Bitmap.Config.RGB_565;
 
@@ -60,7 +60,7 @@ public abstract class AppActivity extends AppCompatActivity {
 
     protected void closeWithFatalError(AppActivity activity) {
         Toast errorMessageContainer = Toast.makeText(getApplicationContext(),
-                getString(R.string.db_open_FATAL), Toast.LENGTH_SHORT);
+                getString(R.string.messageOpenDbFatal), Toast.LENGTH_SHORT);
         errorMessageContainer.show();
         isAppWillBeClosed =true;
         activity.finish();

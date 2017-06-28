@@ -12,13 +12,13 @@
         android:scaleType="centerInside"
         android:id="@+id/iv_splashScreen"
         android:src="@drawable/splash_screen"
-        android:contentDescription="@string/splash_pic_name"
+        android:contentDescription="@string/nameSplashImage"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tv_copyright"
+        android:text="@string/textCopyright"
         android:id="@+id/tv_copyright"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
@@ -30,7 +30,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tv_splachScreen"
+        android:text="@string/textUsersWarning"
         android:id="@+id/tv_splash"
         android:layout_above="@+id/tv_copyright"
         android:layout_centerHorizontal="true"

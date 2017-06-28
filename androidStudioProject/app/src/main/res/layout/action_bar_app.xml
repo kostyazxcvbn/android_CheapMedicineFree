@@ -14,21 +14,21 @@
         >
 
         <ImageView
+            android:id="@+id/iv_docImage"
             android:layout_width="@dimen/abc_action_bar_default_height_material"
-            android:layout_height="@dimen/abc_action_bar_default_height_material"
 
-            android:id="@+id/iv_doc"
-            android:src="@drawable/doc_back"
-            android:contentDescription="@string/appName"
+            android:layout_height="@dimen/abc_action_bar_default_height_material"
             android:clickable="true"
-            android:onClick="onClickHomeButton" />
+            android:contentDescription="@string/textAppName"
+            android:onClick="onClickHomeButton"
+            android:src="@drawable/doc_back" />
 
         <TextView
+            android:id="@+id/tv_AppFullNameInActionBar"
+            style="@style/actionBar_title"
             android:layout_width="match_parent"
             android:layout_height="@dimen/abc_action_bar_default_height_material"
-            android:text="@string/s_title"
-            android:id="@+id/tv_title"
-            style="@style/actionBar_title"
-            android:gravity="center_vertical|left" />
+            android:gravity="center_vertical|left"
+            android:text="@string/textAppFullName" />
     </TableRow>
 </LinearLayout>

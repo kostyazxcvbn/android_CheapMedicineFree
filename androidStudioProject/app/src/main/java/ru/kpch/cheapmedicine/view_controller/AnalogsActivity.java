@@ -53,29 +53,29 @@ public class AnalogsActivity extends AppActivity {
 
         setContentView(R.layout.activity_analogs);
 
-        WebView view = (WebView) findViewById(R.id.tv_analogs_Text);
+        WebView view = (WebView) findViewById(R.id.tv_analogsHelpText);
         String text = "<html><body bgcolor=\"#fafafa\"><div align=\"justify\" style=\"color:#444444; font-size:14px\">" +
-        getString(R.string.t_compare_cost) +
+        getString(R.string.textComparePrices) +
         "</div></body></html>";
         WebSettings settings = view.getSettings();
         settings.setDefaultTextEncodingName("utf-8");
         view.loadDataWithBaseURL(null, text, "text/html","en_US", null);
 
-        TextView drugNameField=(TextView)findViewById(R.id.tv_analogs_n_Drug);
-        drugstoresList =(Spinner)findViewById(R.id.s_analogs_Aptek);
+        TextView drugNameField=(TextView)findViewById(R.id.tv_selectedDrugName);
+        drugstoresList =(Spinner)findViewById(R.id.s_drugstores);
 
         drugNameField.setText(appLogic.getSelectedDrug().getName());
 
-        analogsList =(ListView)findViewById(R.id.lv_analogs);
+        analogsList =(ListView)findViewById(R.id.lv_analogsList);
         try {
-            analogsListAdapter = new SimpleAdapter(this, appLogic.getSelectedDrug().getAnalogsListForAdapter(), R.layout.list_item_analogs, new String[]{AppLogicImpl.KEY_ANALOGNAME,AppLogicImpl.KEY_PRICE,AppLogicImpl.KEY_ANALOG_IN},new int[]{R.id.mi_analog_name, R.id.mi_cost, R.id.tv_analog_in});
+            analogsListAdapter = new SimpleAdapter(this, appLogic.getSelectedDrug().getAnalogsListForAdapter(), R.layout.list_item_analogs, new String[]{AppLogicImpl.KEY_ANALOGNAME,AppLogicImpl.KEY_PRICE,AppLogicImpl.KEY_ANALOG_IN},new int[]{R.id.mi_analogName, R.id.mi_price, R.id.tv_analogIn});
         } catch (NullPointerException e) {
             closeWithFatalError(this);
         }
         analogsList.setAdapter(analogsListAdapter);
 
         try {
-            drugstoresListAdapter=new ArrayAdapter(this, R.layout.list_item_active_susp, R.id.tv_sp_item_name, appLogic.getDrugstores().toArray());
+            drugstoresListAdapter=new ArrayAdapter(this, R.layout.list_item_active_substance, R.id.tv_itemForSpinner, appLogic.getDrugstores().toArray());
         } catch (NullPointerException e) {
             closeWithFatalError(this);
         }
@@ -135,11 +135,11 @@ public class AnalogsActivity extends AppActivity {
 
         LayoutInflater drugstoreInfoContent = getLayoutInflater();
 
-        View drugstoreInfoView = drugstoreInfoContent.inflate(R.layout.window_drug_store_info,null);
-        TextView drugStoreName = (TextView)drugstoreInfoView.findViewById(R.id.tv_aptek_name);
-        TextView drugstoreCity = (TextView)drugstoreInfoView.findViewById(R.id.field_city_aptek);
-        TextView drugStoreSite = (TextView)drugstoreInfoView.findViewById(R.id.field_site);
-        TextView drugstorePhone = (TextView)drugstoreInfoView.findViewById(R.id.field_phone);
+        View drugstoreInfoView = drugstoreInfoContent.inflate(R.layout.window_drugstore_info,null);
+        TextView drugStoreName = (TextView)drugstoreInfoView.findViewById(R.id.tv_drugstoreName);
+        TextView drugstoreCity = (TextView)drugstoreInfoView.findViewById(R.id.field_drugstoreCity);
+        TextView drugStoreSite = (TextView)drugstoreInfoView.findViewById(R.id.field_drugStoreSite);
+        TextView drugstorePhone = (TextView)drugstoreInfoView.findViewById(R.id.field_drugstorePhone);
 
         drugStoreName.setText(selectedDrugstore.getName());
         drugstoreCity.setText(selectedDrugstore.getCity());
@@ -150,7 +150,7 @@ public class AnalogsActivity extends AppActivity {
         builder.setView(drugstoreInfoView);
 
         builder.setCancelable(false)
-                .setNegativeButton(R.string.button_close,
+                .setNegativeButton(R.string.buttonClose,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
@@ -192,9 +192,9 @@ public class AnalogsActivity extends AppActivity {
 
     public class PriceParcer extends AsyncTask<Void, Void, Void>
     {
-        Button comparePricesButton =(Button)findViewById(R.id.b_analogs_compare);
-        Spinner drugstoresList =(Spinner)findViewById(R.id.s_analogs_Aptek);
-        ProgressBar progressBarComparePrices =(ProgressBar)findViewById(R.id.progBar_compareCosts);
+        Button comparePricesButton =(Button)findViewById(R.id.b_comparePrices);
+        Spinner drugstoresList =(Spinner)findViewById(R.id.s_drugstores);
+        ProgressBar progressBarComparePrices =(ProgressBar)findViewById(R.id.progBar_comparePrices);
         int i;
 
         @Override
@@ -232,7 +232,10 @@ public class AnalogsActivity extends AppActivity {
         protected void onPostExecute(Void result){
             super.onPostExecute(result);
 
-            analogsListAdapter=new SimpleAdapter(AnalogsActivity.this, appLogic.getSelectedDrug().getAnalogsListForAdapter(), R.layout.list_item_analogs, new String[]{AppLogicImpl.KEY_ANALOGNAME,AppLogicImpl.KEY_PRICE,AppLogicImpl.KEY_ANALOG_IN},new int[]{R.id.mi_analog_name, R.id.mi_cost, R.id.tv_analog_in});
+            TextView drugPriceField=(TextView)findViewById(R.id.tv_drugPrice);
+            drugPriceField.setText(appLogic.getSelectedDrug().getPrice());
+
+            analogsListAdapter=new SimpleAdapter(AnalogsActivity.this, appLogic.getSelectedDrug().getAnalogsListForAdapter(), R.layout.list_item_analogs, new String[]{AppLogicImpl.KEY_ANALOGNAME,AppLogicImpl.KEY_PRICE,AppLogicImpl.KEY_ANALOG_IN},new int[]{R.id.mi_analogName, R.id.mi_price, R.id.tv_analogIn});
             analogsList.setAdapter(analogsListAdapter);
 
             progressBarComparePrices.setVisibility(ProgressBar.INVISIBLE);

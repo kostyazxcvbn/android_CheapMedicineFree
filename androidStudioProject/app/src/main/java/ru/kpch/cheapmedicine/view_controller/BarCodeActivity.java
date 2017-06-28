@@ -19,10 +19,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-
 import net.sourceforge.zbar.Config;
 import net.sourceforge.zbar.Image;
 import net.sourceforge.zbar.ImageScanner;
@@ -35,9 +31,6 @@ import ru.kpch.cheapmedicine.model.Drug;
 import static ru.kpch.cheapmedicine.model.AppEnums.*;
 
 public class BarCodeActivity extends AppActivity {
-
-    InterstitialAd mInterstitialAd;
-    boolean isAdMobClosed =false;
 
     private static final int WHITE = 0xFFFFFFFF;
     private static final int BLACK = 0xFF000000;
@@ -76,19 +69,7 @@ public class BarCodeActivity extends AppActivity {
 
         setContentView(R.layout.activity_bar_code);
 
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(getString(R.string.banner_ad_unit_id4));
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                isAdMobClosed = true;
-            }
-        });
-
-        requestNewInterstitial();
-
-        barcodeTextView =(TextView)findViewById(R.id.tv_scanned_barcode);
+        barcodeTextView =(TextView)findViewById(R.id.field_ScannedBarcode);
 
         preview = (FrameLayout) findViewById(R.id.cameraPreview);
         preview.setEnabled(false);
@@ -97,26 +78,20 @@ public class BarCodeActivity extends AppActivity {
 
     }
 
-    private void requestNewInterstitial() {
-        AdRequest adRequest = new AdRequest.Builder().build();
-
-        mInterstitialAd.loadAd(adRequest);
-    }
-
     private void showDemoVersionDialog(){
         final int demoCountForFreeVersion=appLogic.getDemoCountForFreeVersion();
 
         LayoutInflater windowCloseContent = getLayoutInflater();
         View barcodeNotFoundView = windowCloseContent.inflate(R.layout.window_bar_code_not_found,null);
-        TextView notice=(TextView) barcodeNotFoundView.findViewById(R.id.tv_barcode_notfound);
+        TextView notice=(TextView) barcodeNotFoundView.findViewById(R.id.tv_barcodeNotFound);
 
-        notice.setText(getString(R.string.tv_demo_barcode_part1)+ Integer.toString(demoCountForFreeVersion)+getString(R.string.tv_demo_barcode_part2));
+        notice.setText(getString(R.string.textBarcodeDemoVersionPart1)+ Integer.toString(demoCountForFreeVersion)+getString(R.string.textBarcodeDemoVersionPart2));
 
         AlertDialog.Builder quitDialog = new android.support.v7.app.AlertDialog.Builder(BarCodeActivity.this);
         quitDialog.setView(barcodeNotFoundView);
 
         if(demoCountForFreeVersion>0){
-            quitDialog.setPositiveButton(R.string.button_continue, new DialogInterface.OnClickListener() {
+            quitDialog.setPositiveButton(R.string.buttonContinue, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     if (appLogic.decrementDemoCountForFreeVersion()) {
@@ -126,7 +101,7 @@ public class BarCodeActivity extends AppActivity {
                         scanner.setConfig(0, Config.X_DENSITY, 3);
                         scanner.setConfig(0, Config.Y_DENSITY, 3);
 
-                        barcodeImage = (ImageView) findViewById(R.id.bar_code);
+                        barcodeImage = (ImageView) findViewById(R.id.iv_barcode);
                         resumeCamera();
                         preview.setEnabled(true);
                     } else {
@@ -136,7 +111,7 @@ public class BarCodeActivity extends AppActivity {
             });
         }
 
-        quitDialog.setNegativeButton(R.string.button_return, new DialogInterface.OnClickListener() {
+        quitDialog.setNegativeButton(R.string.buttonReturn, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 onBackPressed();
@@ -151,11 +126,6 @@ public class BarCodeActivity extends AppActivity {
         super.onResume();
         if(preview.isEnabled()){
             resumeCamera();
-        }
-
-        if(isAdMobClosed) {
-            isAdMobClosed = false;
-            onBackPressed();
         }
     }
 
@@ -238,7 +208,7 @@ public class BarCodeActivity extends AppActivity {
                         preview.setEnabled(false);
                         barcodeTextView.setText(lastScannedCode);
 
-                        ProgressBar FindByBarcodeProgressBar=(ProgressBar)findViewById(R.id.pb_barcode_findDrug);
+                        ProgressBar FindByBarcodeProgressBar=(ProgressBar)findViewById(R.id.progBar_findByBarcode);
                         FindByBarcodeProgressBar.setVisibility(ProgressBar.VISIBLE);
 
                         Drug foundDrug=appLogic.findByBarcode(lastScannedCode);
@@ -256,14 +226,14 @@ public class BarCodeActivity extends AppActivity {
 
                             LayoutInflater windowCloseContent = getLayoutInflater();
                             View barcodeNotFoundView = windowCloseContent.inflate(R.layout.window_bar_code_not_found, null);
-                            TextView notice=(TextView) barcodeNotFoundView.findViewById(R.id.tv_barcode_notfound);
+                            TextView notice=(TextView) barcodeNotFoundView.findViewById(R.id.tv_barcodeNotFound);
 
-                            notice.setText(getString(R.string.tv_notfound));
+                            notice.setText(getString(R.string.textNotFoundByBarcode));
 
                             AlertDialog.Builder quitDialog = new android.support.v7.app.AlertDialog.Builder(BarCodeActivity.this);
                             quitDialog .setView(barcodeNotFoundView);
 
-                            quitDialog.setPositiveButton(R.string.button_yes, new DialogInterface.OnClickListener() {
+                            quitDialog.setPositiveButton(R.string.buttonYes, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     UsersBarcodeForAnalogHelper UsersBarcodeForAnalogHelper =new UsersBarcodeForAnalogHelper();
@@ -271,7 +241,7 @@ public class BarCodeActivity extends AppActivity {
                                 }
                             });
 
-                            quitDialog.setNegativeButton(R.string.button_no, new DialogInterface.OnClickListener() {
+                            quitDialog.setNegativeButton(R.string.buttonNo, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     resumeCamera();
@@ -294,7 +264,7 @@ public class BarCodeActivity extends AppActivity {
             super.onPreExecute();
             isSendingOfBarcodeInProccess =true;
 
-            ProgressBar sendingBarcodeProgressBar=(ProgressBar)findViewById(R.id.pb_barcode_findDrug);
+            ProgressBar sendingBarcodeProgressBar=(ProgressBar)findViewById(R.id.progBar_findByBarcode);
             sendingBarcodeProgressBar.setVisibility(ProgressBar.VISIBLE);
         }
 
@@ -309,19 +279,19 @@ public class BarCodeActivity extends AppActivity {
 
             Toast resultMessageContainer;
 
-            ProgressBar sendingBarcodeProgressBar=(ProgressBar)findViewById(R.id.pb_barcode_findDrug);
+            ProgressBar sendingBarcodeProgressBar=(ProgressBar)findViewById(R.id.progBar_findByBarcode);
             sendingBarcodeProgressBar.setVisibility(ProgressBar.INVISIBLE);
 
             switch (result) {
                 case SENDING_SUCCESSFUL:{
                     resultMessageContainer = Toast.makeText(getApplicationContext(),
-                            getString(R.string.tv_addNew_OK), Toast.LENGTH_LONG);
+                            getString(R.string.messageRequestAccepted), Toast.LENGTH_LONG);
                     break;
                 }
                 case SENDING_ERROR:
                 default:{
                     resultMessageContainer = Toast.makeText(getApplicationContext(),
-                            getString(R.string.tv_addNew_ERROR), Toast.LENGTH_LONG);
+                            getString(R.string.messageRequestSendingError), Toast.LENGTH_LONG);
                     break;
                 }
             }
@@ -340,28 +310,15 @@ public class BarCodeActivity extends AppActivity {
     };
 
     public void onClickHomeButton(View view){
-
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        }
-        else{
-            if(!isSendingOfBarcodeInProccess) {
-                onBackPressed();
-            }
+        if(!isSendingOfBarcodeInProccess) {
+            onBackPressed();
         }
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode==KeyEvent.KEYCODE_BACK &&  !isSendingOfBarcodeInProccess){
-
-            if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            }
-            else{
-                onBackPressed();
-            }
-
+            onBackPressed();
             return super.onKeyDown(keyCode, event);
         }
         return false;

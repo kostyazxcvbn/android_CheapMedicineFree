@@ -12,132 +12,132 @@
     style="@style/cm1_layouts">
 
     <TextView
+        android:id="@+id/tv_selectedDrug"
+        style="@style/s_MenuItems"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/n_name_underline"
-        android:id="@+id/tv_analogs_s_Drug"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        style="@style/s_MenuItems" />
+        android:layout_alignParentTop="true"
+        android:text="@string/textDrugNameUnderline" />
 
     <TextView
+        android:id="@+id/tv_selectedDrugName"
+        style="@style/s_chosen_drug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_analogs_n_Drug"
-        android:textColor="#d20000"
-        android:textStyle="bold"
-        android:layout_below="@+id/tv_analogs_s_Drug"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:gravity="center_horizontal|left"
-        style="@style/s_chosen_drug"
-        android:onClick="onClickDrugNotice"
-        android:clickable="true"
+        android:layout_below="@+id/tv_selectedDrug"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="3dp"
+        android:clickable="true"
+        android:gravity="center_horizontal|left"
+        android:longClickable="false"
         android:maxWidth="175dp"
-        android:longClickable="false" />
+        android:onClick="onClickDrugNotice"
+        android:textColor="#d20000"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/n_analog_underline"
-        android:id="@+id/tv_analogs_s_Analogs"
+        android:text="@string/textAnalogNameUnderline"
+        android:id="@+id/tv_drugAnalogs"
         style="@style/s_MenuItems"
-        android:layout_below="@+id/tv_analogs_n_Drug"
+        android:layout_below="@+id/tv_selectedDrugName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp" />
 
     <ListView
+        android:id="@+id/lv_analogsList"
+        style="@style/ListView_withoutDeviders"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lv_analogs"
-        android:layout_below="@+id/tv_analogs_s_Analogs"
+        android:layout_above="@+id/tv_analogsHelpText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_drugAnalogs"
         android:layout_marginTop="5dp"
-        style="@style/ListView_withoutDeviders"
-        android:layout_above="@+id/tv_analogs_Text"
         android:background="@drawable/cm1_border_field"
         android:padding="6dp" />
 
 
     <TextView
+        android:id="@+id/tv_drugPrice"
+        style="@style/s_chosen_drug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_drug_cost"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/tv_analogs_n_Drug"
-        style="@style/s_chosen_drug" />
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/tv_selectedDrugName" />
 
     <TextView
+        android:id="@+id/tv_hiddenButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_analogs_s_Drug"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_selectedDrug"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="3dp"
-        android:onClick="onClickDrugNotice"
         android:nestedScrollingEnabled="true"
-        android:id="@+id/tv_hidden_button" />
+        android:onClick="onClickDrugNotice" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/buttonComparePrices"
-        android:id="@+id/b_analogs_compare"
+        android:id="@+id/b_comparePrices"
         style="@style/cm_buttons"
         android:enabled="true"
         android:onClick="onClickComparePrices"
         android:layout_alignParentBottom="true" />
 
     <Spinner
+        android:id="@+id/s_drugstores"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/s_analogs_Aptek"
 
+        android:layout_above="@+id/b_comparePrices"
+
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/iv_drugstoreInfo"
         android:focusable="false"
-
-        android:spinnerMode="dropdown"
-        android:layout_above="@+id/b_analogs_compare"
         android:scrollIndicators="right"
-        android:layout_toRightOf="@+id/iv_info_aptek"
-        android:layout_marginLeft="5dp" />
+        android:spinnerMode="dropdown" />
 
     <WebView
+        android:id="@+id/tv_analogsHelpText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_analogs_Text"
 
-        android:scrollIndicators="none"
+        android:layout_above="@+id/iv_drugstoreInfo"
 
         android:layout_marginTop="5dp"
-        android:layout_above="@+id/iv_info_aptek" />
+        android:scrollIndicators="none" />
 
     <ProgressBar
+        android:id="@+id/progBar_comparePrices"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/progBar_compareCosts"
-        android:visibility="invisible"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:visibility="invisible" />
 
     <ImageView
         android:layout_width="40px"
         android:layout_height="40px"
-        android:id="@+id/iv_info_aptek"
+        android:id="@+id/iv_drugstoreInfo"
         android:layout_alignParentLeft="true"
-        android:layout_above="@+id/b_analogs_compare"
+        android:layout_above="@+id/b_comparePrices"
         android:src="@drawable/info_aptek"
         android:scaleType="fitCenter"
         android:layout_marginLeft="3dp"
         android:layout_marginBottom="3dp"
-        android:contentDescription="@string/no_data"
+        android:contentDescription="@string/textNoData"
         android:onClick="onClickDrugstoreInfo" />
 
 </RelativeLayout>

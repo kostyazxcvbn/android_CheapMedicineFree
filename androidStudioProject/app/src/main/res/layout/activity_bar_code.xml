@@ -11,8 +11,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tv_barcode_help"
-        android:id="@+id/tv_barcode_help"
+        android:text="@string/textHelpWithReadingBarcode"
+        android:id="@+id/tv_barcodeHelpMessage"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:paddingTop="16dp"
@@ -20,28 +20,28 @@
         android:paddingLeft="16dp" />
 
     <TextView
+        android:id="@+id/field_ScannedBarcode"
+        style="@style/s_barCode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_scanned_barcode"
+        android:layout_below="@+id/cameraPreview"
         android:layout_gravity="center"
-        style="@style/s_barCode"
-        android:gravity="center|top"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/cameraPreview" />
+        android:gravity="center|top" />
 
     <FrameLayout
         android:id="@+id/cameraPreview"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_gravity="center"
-        android:layout_below="@+id/tv_barcode_help"
+        android:layout_below="@+id/tv_barcodeHelpMessage"
         android:layout_marginTop="10dp"
         android:layout_centerInParent="true"
         android:background="@drawable/cm1_border_barcode"
         android:padding="3dp">
 
         <ImageView
-            android:id="@+id/bar_code"
+            android:id="@+id/iv_barcode"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center" />
@@ -49,10 +49,10 @@
     </FrameLayout>
 
     <ProgressBar
+        android:id="@+id/progBar_findByBarcode"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/pb_barcode_findDrug"
         android:layout_centerInParent="true"
         android:visibility="invisible" />
 

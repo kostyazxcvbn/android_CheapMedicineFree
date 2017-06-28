@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -107,7 +106,7 @@ public class DatabaseHelperImpl extends SQLiteOpenHelper implements IDatabaseMan
             this.connection = getSqLiteConnection();
         }
         if (this.connection != null) {
-            throw new InitializationException(appContext.getString(R.string.initialization_exception_connection));
+            throw new InitializationException(appContext.getString(R.string.messageConnectionInitializationException));
         }
 
     }
@@ -564,7 +563,7 @@ public class DatabaseHelperImpl extends SQLiteOpenHelper implements IDatabaseMan
     @Override
     public void beginTransaction() throws NullPointerException{
         if(this.connection==null){
-            throw new NullPointerException(appContext.getString(R.string.null_pointer_exception_connection));
+            throw new NullPointerException(appContext.getString(R.string.messageConnectionNullPointerException));
         }
         if (this.connection != null) {
             this.connection.beginTransaction();
@@ -574,7 +573,7 @@ public class DatabaseHelperImpl extends SQLiteOpenHelper implements IDatabaseMan
     @Override
     public void endTransaction() {
         if (this.connection == null) {
-            throw new NullPointerException(appContext.getString(R.string.null_pointer_exception_connection));
+            throw new NullPointerException(appContext.getString(R.string.messageConnectionNullPointerException));
         }
         if(this.connection!=null){
             this.connection.endTransaction();
@@ -586,7 +585,7 @@ public class DatabaseHelperImpl extends SQLiteOpenHelper implements IDatabaseMan
     @Override
     public void setTransactionSuccessful() {
         if(this.connection==null){
-            throw new NullPointerException(appContext.getString(R.string.null_pointer_exception_connection));
+            throw new NullPointerException(appContext.getString(R.string.messageConnectionNullPointerException));
         }
         if (this.connection != null) {
             this.connection.setTransactionSuccessful();

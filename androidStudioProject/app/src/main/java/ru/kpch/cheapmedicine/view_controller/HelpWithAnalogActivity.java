@@ -15,16 +15,11 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
 import static ru.kpch.cheapmedicine.model.AppEnums.*;
 
 import ru.kpch.cheapmedicine.R;
 
 public class HelpWithAnalogActivity extends AppActivity {
-
-    private AdView mAdView;
 
     EditText newDrug;
     Button addNewDrugButton;
@@ -46,9 +41,6 @@ public class HelpWithAnalogActivity extends AppActivity {
         setActivityActionBar(this, R.raw.doc_back);
 
         setContentView(R.layout.activity_help_with_analog);
-
-        MAdLoader mAdLoader=new MAdLoader();
-        mAdLoader.execute();
 
         addNewDrugButton = (Button) findViewById(R.id.b_addNewDrug);
         newDrug = (EditText) findViewById(R.id.et_add_newDrug);
@@ -87,25 +79,16 @@ public class HelpWithAnalogActivity extends AppActivity {
 
     @Override
     public void onPause() {
-        if (mAdView != null) {
-            mAdView.pause();
-        }
         super.onPause();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        if (mAdView != null) {
-            mAdView.resume();
-        }
     }
 
     @Override
     public void onDestroy() {
-        if (mAdView != null) {
-            mAdView.destroy();
-        }
         if (isAppWillBeClosed) {
             appLogic.clearAppCache();
         }
@@ -146,35 +129,6 @@ public class HelpWithAnalogActivity extends AppActivity {
         finish();
     }
 
-    public class MAdLoader extends AsyncTask<Void, Void, AdRequest>
-    {
-
-        @Override
-        protected void onPreExecute(){
-            super.onPreExecute();
-            mAdView = (AdView) findViewById(R.id.ad_view);
-
-        }
-
-        @Override
-        protected AdRequest doInBackground(Void... params){
-            AdRequest adRequest = new AdRequest.Builder()
-                    //.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                    .build();
-
-            return adRequest;
-        }
-
-
-        @Override
-        protected void onPostExecute(AdRequest a){
-            super.onPostExecute(a);
-
-            mAdView.loadAd(a);
-        }
-
-    }
-
     public class UsersDrugForAnalogHelper extends AsyncTask<String, Void, RequestToServerState>
     {
 
@@ -206,12 +160,12 @@ public class HelpWithAnalogActivity extends AppActivity {
 
             switch (result) {
                 case SENDING_SUCCESSFUL:{
-                    resultMessageContainer.setText(getString(R.string.tv_addNew_OK));
+                    resultMessageContainer.setText(getString(R.string.messageRequestAccepted));
                     break;
                 }
                 case SENDING_ERROR:
                 default:{
-                    resultMessageContainer.setText(getString(R.string.tv_addNew_ERROR));
+                    resultMessageContainer.setText(getString(R.string.messageRequestSendingError));
                 }
             }
             addNewDrugButton.setEnabled(true);
