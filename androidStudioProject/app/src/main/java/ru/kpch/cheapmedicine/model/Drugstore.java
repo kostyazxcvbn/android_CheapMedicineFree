@@ -144,7 +144,7 @@ public class Drugstore {
                     break;
                 }
             }
-            correctedPrice.append(" p");
+            correctedPrice.append(context.getString(R.string.valueCurrencyUnit));
             return correctedPrice.toString();
         }
         return context.getString(R.string.messageNoData);
