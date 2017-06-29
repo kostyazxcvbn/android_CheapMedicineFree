@@ -115,7 +115,7 @@ public final class AppLogicImpl implements IAppLogic{
         String content;
         String[] fullDrugsList = null;
 
-        String serverName="http://www.kpch.ru/app1/";
+        String serverName=appContext.getString(R.string.valueRemoteServer);
         String phpFunc="getNewDrugList.php?";
 
         String urlRequest = serverName + phpFunc;
@@ -174,7 +174,7 @@ public final class AppLogicImpl implements IAppLogic{
         String content;
         UpdateState updateState= UpdateState.NO_UPDATES;
 
-        String serverName="http://www.kpch.ru/app1/";
+        String serverName=appContext.getString(R.string.valueRemoteServer);
         String phpFunc="getDb.php?bc=1&t=";
 
         try {
@@ -240,7 +240,7 @@ public final class AppLogicImpl implements IAppLogic{
         String content;
         RequestToServerState sendingState= RequestToServerState.SENDING_ERROR;
 
-        String serverName="http://www.kpch.ru/app1/";
+        String serverName=appContext.getString(R.string.valueRemoteServer);
         String phpFunc="addNew.php?";
 
         try {

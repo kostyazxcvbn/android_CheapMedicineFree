@@ -89,4 +89,6 @@
 
     <string name="nameAppActionBarItemSearch">Поиск</string>
     <string name="nameSplashImage">splash_logo</string>
+    <string name="valueRemoteServer">http://www.kpch.ru/app1/</string>
+
 </resources>
