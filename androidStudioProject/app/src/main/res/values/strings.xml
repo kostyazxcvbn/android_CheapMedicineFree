@@ -89,9 +89,4 @@
 
     <string name="nameAppActionBarItemSearch">Поиск</string>
     <string name="nameSplashImage">splash_logo</string>
-
-    <string name="banner_ad_unit_id1">ca-app-pub-2122233319995800/9318367973</string>
-    <string name="banner_ad_unit_id2">ca-app-pub-2122233319995800/3551035971</string>
-    <string name="banner_ad_unit_id3">ca-app-pub-2122233319995800/8064973976</string>
-    <string name="banner_ad_unit_id4">ca-app-pub-2122233319995800/4498314771</string>
 </resources>

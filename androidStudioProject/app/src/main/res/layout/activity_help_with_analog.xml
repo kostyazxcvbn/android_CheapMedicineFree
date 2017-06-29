@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/textCreateRequestForAnalog"
-        android:id="@+id/tv_addDrug_note"
+        android:id="@+id/tv_addDrugHelpMessage"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -22,8 +22,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_add_newDrug"
-        android:layout_below="@+id/tv_addDrug_note"
+        android:id="@+id/et_newDrugField"
+        android:layout_below="@+id/tv_addDrugHelpMessage"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:maxLines="1"
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:text="@string/buttonSendRequest"
         android:id="@+id/b_addNewDrug"
-        android:layout_below="@+id/et_add_newDrug"
+        android:layout_below="@+id/et_newDrugField"
         android:layout_centerHorizontal="true"
         style="@style/cm_buttons"
         android:nestedScrollingEnabled="false"
@@ -57,7 +57,7 @@
         android:layout_marginRight="@dimen/activity_horizontal_margin" />
 
     <TextView
-        android:id="@+id/tv_addNew_state"
+        android:id="@+id/tv_addingDrugResultMessage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
@@ -67,12 +67,12 @@
         android:layout_marginRight="@dimen/activity_horizontal_margin" />
 
     <ProgressBar
+        android:id="@+id/progBar_addingDrugForHelp"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/progBar_needHelp"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:visibility="invisible" />
 
     </RelativeLayout>

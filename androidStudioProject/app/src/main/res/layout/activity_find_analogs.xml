@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/textDrugSearch"
-        android:id="@+id/tv_selectDrug"
+        android:id="@+id/tv_selectDrugHelpMessage"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -24,38 +24,38 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/lv_names_in_DB"
+        android:layout_alignLeft="@+id/lv_drugsList"
         android:id="@+id/layout_filter"
-        android:layout_below="@+id/tv_selectDrug"
-        android:layout_alignRight="@+id/lv_names_in_DB"
+        android:layout_below="@+id/tv_selectDrugHelpMessage"
+        android:layout_alignRight="@+id/lv_drugsList"
         android:layout_marginTop="5dp"
         android:background="@drawable/cm1_border_field">
 
         <CheckBox
+            android:id="@+id/cb_filterBySubstance"
+            style="@style/s_filter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/textActiveSubstanceFilter"
+            android:background="#3f51b5"
             android:button="@drawable/checkbox_selector"
-            android:id="@+id/cb_filterSusp"
-            style="@style/s_filter"
-            android:background="#3f51b5" />
+            android:text="@string/textActiveSubstanceFilter" />
 
         <Spinner
+            android:id="@+id/sp_activeSubstancesList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/sp_active_susp"
-            android:spinnerMode="dropdown"
-            android:scrollIndicators="right"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp" />
+            android:scrollIndicators="right"
+            android:spinnerMode="dropdown" />
 
     </LinearLayout>
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lv_names_in_DB"
+        android:id="@+id/lv_drugsList"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:fastScrollAlwaysVisible="true"

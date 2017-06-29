@@ -16,38 +16,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/textHelpWithAnalog"
-        android:id="@+id/tv_help_with_analog"
+        android:id="@+id/tv_addingNewAnalogHelpMessage"
         android:layout_alignParentTop="false"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <ListView
+        android:id="@+id/lv_drugsListForNewAnalog"
+        style="@style/ListView_withoutDeviders"
         android:layout_width="wrap_content"
         android:layout_height="180dp"
-        android:id="@+id/lv_add_analog"
-        android:smoothScrollbar="false"
-        android:scrollingCache="false"
-        android:layout_below="@+id/tv_help_with_analog"
+        android:layout_above="@+id/linearLayout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/linearLayout"
-        android:fastScrollAlwaysVisible="true"
-        android:scrollIndicators="right"
+        android:layout_below="@+id/tv_addingNewAnalogHelpMessage"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
-        android:contextClickable="false"
-        style="@style/ListView_withoutDeviders"
         android:background="@drawable/cm1_border_field"
-        android:padding="3dp" />
+        android:contextClickable="false"
+        android:fastScrollAlwaysVisible="true"
+        android:padding="3dp"
+        android:scrollIndicators="right"
+        android:scrollingCache="false"
+        android:smoothScrollbar="false" />
 
     <ProgressBar
+        android:id="@+id/progBar_loadingNewDrugList"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/progBar_NewDrugList"
-        android:visibility="invisible"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:visibility="invisible" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -68,27 +68,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/textDrugName"
-                android:id="@+id/lv_add_analogDrug"
+                android:id="@+id/lv_drugForAnalog"
                 style="@style/s_add_analogNames"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="false"
                 android:layout_alignParentBottom="false"
                 android:gravity="bottom"
-                android:layout_alignBottom="@+id/et_add_analogDrug" />
+                android:layout_alignBottom="@+id/et_drugForAnalogField" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/et_add_analogDrug"
+                android:id="@+id/et_drugForAnalogField"
                 android:inputType="textPersonName"
                 android:maxLines="1"
                 android:maxLength="100"
                 style="@style/EditText_cm"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="false"
-                android:layout_toRightOf="@+id/lv_add_analogDrug"
-                android:layout_toEndOf="@+id/lv_add_analogDrug"
+                android:layout_toRightOf="@+id/lv_drugForAnalog"
+                android:layout_toEndOf="@+id/lv_drugForAnalog"
                 android:layout_marginLeft="5dp"
                 android:textColor="#d20000" />
         </RelativeLayout>
@@ -102,23 +102,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/textAnalog"
-                android:id="@+id/tv_add_analogAnalog"
+                android:id="@+id/tv_newAnalog"
                 style="@style/s_add_analogNames"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="false"
                 android:layout_alignParentTop="true"
                 android:gravity="bottom"
-                android:layout_alignBottom="@+id/et_add_analogAnalog" />
+                android:layout_alignBottom="@+id/et_newAnalogField" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/et_add_analogAnalog"
+                android:id="@+id/et_newAnalogField"
                 style="@style/EditText_cm"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="false"
-                android:layout_toEndOf="@+id/tv_add_analogAnalog"
-                android:layout_toRightOf="@+id/tv_add_analogAnalog"
+                android:layout_toEndOf="@+id/tv_newAnalog"
+                android:layout_toRightOf="@+id/tv_newAnalog"
                 android:inputType="textPersonName"
                 android:layout_marginLeft="5dp"
                 android:textColor="#0a7800" />

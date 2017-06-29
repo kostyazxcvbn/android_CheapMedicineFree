@@ -43,7 +43,7 @@ public class HelpWithAnalogActivity extends AppActivity {
         setContentView(R.layout.activity_help_with_analog);
 
         addNewDrugButton = (Button) findViewById(R.id.b_addNewDrug);
-        newDrug = (EditText) findViewById(R.id.et_add_newDrug);
+        newDrug = (EditText) findViewById(R.id.et_newDrugField);
 
         newDrug.setFilters(new InputFilter[]{
                 new InputFilter() {
@@ -139,10 +139,10 @@ public class HelpWithAnalogActivity extends AppActivity {
             addNewDrugButton.setEnabled(false);
             newDrug.setEnabled(false);
 
-            TextView resultMessageContainer=(TextView)findViewById(R.id.tv_addNew_state);
+            TextView resultMessageContainer=(TextView)findViewById(R.id.tv_addingDrugResultMessage);
             resultMessageContainer.setText("");
 
-            ProgressBar progBar_update=(ProgressBar)findViewById(R.id.progBar_needHelp);
+            ProgressBar progBar_update=(ProgressBar)findViewById(R.id.progBar_addingDrugForHelp);
             progBar_update.setVisibility(ProgressBar.VISIBLE);
         }
 
@@ -156,7 +156,7 @@ public class HelpWithAnalogActivity extends AppActivity {
         protected void onPostExecute(RequestToServerState result){
             super.onPostExecute(result);
 
-            TextView resultMessageContainer=(TextView)findViewById(R.id.tv_addNew_state);
+            TextView resultMessageContainer=(TextView)findViewById(R.id.tv_addingDrugResultMessage);
 
             switch (result) {
                 case SENDING_SUCCESSFUL:{
@@ -170,7 +170,7 @@ public class HelpWithAnalogActivity extends AppActivity {
             }
             addNewDrugButton.setEnabled(true);
             newDrug.setEnabled(true);
-            ProgressBar AddingNewDrugProgressBar=(ProgressBar)findViewById(R.id.progBar_needHelp);
+            ProgressBar AddingNewDrugProgressBar=(ProgressBar)findViewById(R.id.progBar_addingDrugForHelp);
             AddingNewDrugProgressBar.setVisibility(ProgressBar.INVISIBLE);
             isRequestToServerInProgress = false;
         }

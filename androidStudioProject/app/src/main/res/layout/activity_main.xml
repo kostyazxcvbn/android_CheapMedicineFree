@@ -11,19 +11,19 @@
     style="@style/cm1_layouts">
 
     <ListView
+        android:id="@+id/lv_mainMenuItemsList"
         android:layout_width="wrap_content"
         android:layout_height="220dp"
-        android:id="@+id/lv_main_menu"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/tableLayout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textFilterEnabled="false"
-        android:layout_above="@+id/tableLayout"
-        android:fastScrollEnabled="false"
-        android:fastScrollAlwaysVisible="false"
+        android:layout_alignParentTop="true"
         android:divider="#ffffff"
+        android:fastScrollAlwaysVisible="false"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"
-        android:footerDividersEnabled="false" />
+        android:textFilterEnabled="false" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -43,11 +43,11 @@
             android:paddingRight="5dp">
 
             <TextView
+                android:id="@+id/tv_infoAboutDrugs"
+                style="@style/s_add_analogNames"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/textDatabaseVersionInfo"
-                android:id="@+id/tv_main_info"
-                style="@style/s_add_analogNames"
                 android:textSize="15sp" />
         </TableRow>
 
@@ -63,17 +63,17 @@
                 android:layout_marginTop="8dp">
 
                 <TextView
+                    android:id="@+id/tv_drugsCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/textDrugsCount"
-                    android:id="@+id/tv_main_withAnalogs"
                     android:layout_gravity="left|top"
+                    android:text="@string/textDrugsCount"
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/tv_drugsCountField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tv_main_fieldWithAnalogs"
                     android:layout_marginLeft="3dp"
                     android:textSize="13sp" />
             </TableRow>
@@ -90,42 +90,42 @@
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:id="@+id/tv_drugstoresCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/textDrugstoresCount"
-                    android:id="@+id/tv_main_Services"
                     android:layout_gravity="left|center_vertical"
+                    android:text="@string/textDrugstoresCount"
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/tv_drugstoresCountField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
                     android:text=""
-                    android:id="@+id/tv_main_fieldServices"
-                    android:textSize="13sp"
-                    android:layout_marginLeft="3dp" />
+                    android:textSize="13sp" />
             </TableRow>
 
         </TableRow>
 
         <Button
+            android:id="@+id/b_updateDatabase"
+            style="@style/cm_buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/buttonUpdateDb"
-            android:id="@+id/b_update"
-            style="@style/cm_buttons"
+            android:allowUndo="false"
             android:onClick="onClickUpdateDB"
-            android:allowUndo="false" />
+            android:text="@string/buttonUpdateDb" />
 
     </TableLayout>
 
     <ProgressBar
+        android:id="@+id/progBar_databaseUpdating"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/progBar_update"
-        android:visibility="invisible"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:visibility="invisible" />
 
 </RelativeLayout>

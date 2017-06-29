@@ -28,7 +28,7 @@ public class WebViewInfoActivity extends AppActivity {
 
         setActivityActionBar(this, R.raw.doc_back);
 
-        setContentView(R.layout.activity_drug_info);
+        setContentView(R.layout.activity_web_view);
 
         htmlContainer =(WebView)findViewById(R.id.wv_container);
         htmlContainer.getSettings().setBuiltInZoomControls(true);

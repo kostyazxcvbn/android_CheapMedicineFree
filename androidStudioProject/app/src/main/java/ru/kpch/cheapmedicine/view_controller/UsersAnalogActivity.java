@@ -46,9 +46,9 @@ public class UsersAnalogActivity extends AppActivity {
 
         setContentView(R.layout.activity_users_analog);
 
-        addAnalogTextView =(EditText)findViewById(R.id.et_add_analogAnalog);
+        addAnalogTextView =(EditText)findViewById(R.id.et_newAnalogField);
 
-        addDrugTextView =(EditText)findViewById(R.id.et_add_analogDrug);
+        addDrugTextView =(EditText)findViewById(R.id.et_drugForAnalogField);
 
         InputFilter drugTextFieldFilter = new InputFilter() {
             @Override
@@ -72,9 +72,9 @@ public class UsersAnalogActivity extends AppActivity {
         DrugTextWatcher analogTextWatcher=new DrugTextWatcher(addAnalogTextView, addDrugTextView, addNewPairButton);
         addAnalogTextView.addTextChangedListener(analogTextWatcher);
 
-        loadingDrugLisrProgressbar =(ProgressBar)findViewById(R.id.progBar_NewDrugList);
+        loadingDrugLisrProgressbar =(ProgressBar)findViewById(R.id.progBar_loadingNewDrugList);
 
-        drugsList=(ListView)findViewById(R.id.lv_add_analog);
+        drugsList=(ListView)findViewById(R.id.lv_drugsListForNewAnalog);
 
         FullDrugListLoader fullDrugListLoader =new FullDrugListLoader();
         fullDrugListLoader.execute();

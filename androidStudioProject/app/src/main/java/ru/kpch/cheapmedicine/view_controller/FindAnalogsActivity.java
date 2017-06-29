@@ -48,11 +48,11 @@ public class FindAnalogsActivity extends AppActivity {
 
         setContentView(R.layout.activity_find_analogs);
 
-        drugsList =(ListView)findViewById(R.id.lv_names_in_DB);
+        drugsList =(ListView)findViewById(R.id.lv_drugsList);
 
-        activeSubstanceFilterCheckBox =(CheckBox)findViewById(R.id.cb_filterSusp);
+        activeSubstanceFilterCheckBox =(CheckBox)findViewById(R.id.cb_filterBySubstance);
 
-        activeSubstanceSpinner =(Spinner)findViewById(R.id.sp_active_susp);
+        activeSubstanceSpinner =(Spinner)findViewById(R.id.sp_activeSubstancesList);
         activeSubstanceSpinner.setEnabled(false);
 
 

@@ -67,7 +67,7 @@ public class BarCodeActivity extends AppActivity {
 
         setActivityActionBar(this, R.raw.doc_back);
 
-        setContentView(R.layout.activity_bar_code);
+        setContentView(R.layout.activity_barcode);
 
         barcodeTextView =(TextView)findViewById(R.id.field_ScannedBarcode);
 

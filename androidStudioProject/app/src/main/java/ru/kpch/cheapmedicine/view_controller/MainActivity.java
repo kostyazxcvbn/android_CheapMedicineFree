@@ -48,7 +48,7 @@ public class MainActivity extends AppActivity {
         final String[]menuItems=getResources().getStringArray(R.array.textMainMenuItems);
 
         ArrayAdapter<String> adapter_mainMenu=new  MainMenuAdapter(this, menuItems);
-        ListMainMenu =(ListView)findViewById(R.id.lv_main_menu);
+        ListMainMenu =(ListView)findViewById(R.id.lv_mainMenuItemsList);
 
         ListMainMenu.setAdapter(adapter_mainMenu);
 
@@ -96,11 +96,11 @@ public class MainActivity extends AppActivity {
             }
         });
 
-        buttonUpdateDB =(Button)findViewById(R.id.b_update);
+        buttonUpdateDB =(Button)findViewById(R.id.b_updateDatabase);
         isUpdateInProcess =true;
 
-        updateCountInField(DatabaseHelperImpl.TABLE_DRUGS_1, (TextView)findViewById(R.id.tv_main_fieldWithAnalogs));
-        updateCountInField(DatabaseHelperImpl.TABLE_DRUGSTORE_3, (TextView)findViewById(R.id.tv_main_fieldServices));
+        updateCountInField(DatabaseHelperImpl.TABLE_DRUGS_1, (TextView)findViewById(R.id.tv_drugsCountField));
+        updateCountInField(DatabaseHelperImpl.TABLE_DRUGSTORE_3, (TextView)findViewById(R.id.tv_drugstoresCountField));
     }
 
     @Override
@@ -160,7 +160,7 @@ public class MainActivity extends AppActivity {
 
     private class AppDatabaseUpdater extends AsyncTask<Void, Void, UpdateState>
     {
-        ProgressBar progBarUpdateProgress=(ProgressBar)findViewById(R.id.progBar_update);
+        ProgressBar progBarUpdateProgress=(ProgressBar)findViewById(R.id.progBar_databaseUpdating);
 
         @Override
         protected void onPreExecute(){
@@ -181,8 +181,8 @@ public class MainActivity extends AppActivity {
         @Override
         protected void onPostExecute(UpdateState updateState){
 
-            TextView drugsCount=(TextView)findViewById(R.id.tv_main_fieldWithAnalogs);
-            TextView drugstoresCount=(TextView)findViewById(R.id.tv_main_fieldServices);
+            TextView drugsCount=(TextView)findViewById(R.id.tv_drugsCountField);
+            TextView drugstoresCount=(TextView)findViewById(R.id.tv_drugstoresCountField);
             String updateResultMessage=null;
 
             super.onPostExecute(updateState);
@@ -240,7 +240,7 @@ public class MainActivity extends AppActivity {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_main_menu, null);
             }
 
-            ImageView image = (ImageView)convertView.findViewById(R.id.iv_main_menu_pic);
+            ImageView image = (ImageView)convertView.findViewById(R.id.iv_mainMenuImage);
             BitmapFactory.Options opt = new BitmapFactory.Options();
             opt.inPreferredConfig = Bitmap.Config.RGB_565;
 
@@ -256,7 +256,7 @@ public class MainActivity extends AppActivity {
             BitmapDrawable drawable = new BitmapDrawable(getResources(), bitmap);
             image.setImageDrawable(drawable);
 
-            ((TextView)convertView.findViewById(R.id.tv_main_menu_item)).setText(getItem(position));
+            ((TextView)convertView.findViewById(R.id.tv_mainMenuItem)).setText(getItem(position));
             return convertView;
         }
     }
