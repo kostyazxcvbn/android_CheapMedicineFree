@@ -70,22 +70,23 @@
     <string name="textDrugSearhFieldTip">Поиск препарата</string>
 
     <string name="messageUpdateSuccess">Обновление базы лекарств успешно завершено! </string>
-    <string name="messageUpdateError">Ошибка при обновлении! Изменения в базу не внесены</string>
     <string name="messageNoUpdates">Новых обновлений нет</string>
-    <string name="messageFatalError">Произошла фатальная ошибка. Пожалуйста, попробуйте ещё раз или переустановите приложение.
-    </string>
     <string name="messageRequestAccepted">Ваша заявка принята</string>
-    <string name="messageRequestSendingError">При обработке произошла ошибка. Скорее всего, отсутствует доступ к сети Интернет. Пожалуйста,
-        проверьте наличие соединения и попробуйте ещё раз
-    </string>
     <string name="messageNoData">
         нет данных
     </string>
-    <string name="messageOpenDbFatal">
-        При загрузке базы данных произошла фатальная ошибка. Пожалуйста, попробуйте ещё раз или переустановите приложение.
-    </string>
     <string name="messageConnectionInitializationException">The field \'connection\' is not null</string>
     <string name="messageConnectionNullPointerException">Connection was not initialised</string>
+
+    <string name="errorOpenDbFatal">
+        При загрузке базы данных произошла фатальная ошибка. Пожалуйста, попробуйте ещё раз или переустановите приложение.
+    </string>
+    <string name="errorRequestSendingError">При обработке произошла ошибка. Скорее всего, отсутствует доступ к сети Интернет. Пожалуйста,
+        проверьте наличие соединения и попробуйте ещё раз
+    </string>
+    <string name="errorAppFatalError">Произошла фатальная ошибка. Пожалуйста, попробуйте ещё раз или переустановите приложение.
+    </string>
+    <string name="errorUpdatingDatabase">Ошибка при обновлении! Изменения в базу не внесены</string>
 
     <string name="nameAppActionBarItemSearch">Поиск</string>
     <string name="nameSplashImage">splash_logo</string>

@@ -291,7 +291,7 @@ public class BarCodeActivity extends AppActivity {
                 case SENDING_ERROR:
                 default:{
                     resultMessageContainer = Toast.makeText(getApplicationContext(),
-                            getString(R.string.messageRequestSendingError), Toast.LENGTH_LONG);
+                            getString(R.string.errorRequestSendingError), Toast.LENGTH_LONG);
                     break;
                 }
             }

@@ -198,7 +198,7 @@ public class MainActivity extends AppActivity {
                 }
                 case UPDATE_ERROR:
                 default: {
-                    updateResultMessage=getString(R.string.messageUpdateError);
+                    updateResultMessage=getString(R.string.errorUpdatingDatabase);
                     break;
                 }
             }

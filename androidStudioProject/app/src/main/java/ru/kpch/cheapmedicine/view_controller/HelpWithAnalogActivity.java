@@ -165,7 +165,7 @@ public class HelpWithAnalogActivity extends AppActivity {
                 }
                 case SENDING_ERROR:
                 default:{
-                    resultMessageContainer.setText(getString(R.string.messageRequestSendingError));
+                    resultMessageContainer.setText(getString(R.string.errorRequestSendingError));
                 }
             }
             addNewDrugButton.setEnabled(true);

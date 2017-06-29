@@ -60,7 +60,7 @@ public abstract class AppActivity extends AppCompatActivity {
 
     protected void closeWithFatalError(AppActivity activity) {
         Toast errorMessageContainer = Toast.makeText(getApplicationContext(),
-                getString(R.string.messageOpenDbFatal), Toast.LENGTH_SHORT);
+                getString(R.string.errorOpenDbFatal), Toast.LENGTH_SHORT);
         errorMessageContainer.show();
         isAppWillBeClosed =true;
         activity.finish();
