@@ -108,7 +108,7 @@ public class Drugstore {
             String httpReq = searchLinkPart1 + URLEncoder.encode(drug.getNameForDrugstores(), charset);
             doc= Jsoup.connect(httpReq).timeout(10000).get();
         }
-        catch(IOException e){
+        catch(Exception e){
             return context.getString(R.string.messageNoData);
         }
 
@@ -141,9 +141,10 @@ public class Drugstore {
                     }
                 }
                 else{
-                    return correctedPrice.toString();
+                    break;
                 }
             }
+            correctedPrice.append(" p");
             return correctedPrice.toString();
         }
         return context.getString(R.string.messageNoData);
