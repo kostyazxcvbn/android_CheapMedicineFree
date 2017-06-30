@@ -4,8 +4,6 @@ import android.content.Context;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-
-import java.io.IOException;
 import java.net.URLEncoder;
 
 import ru.kpch.cheapmedicine.R;
