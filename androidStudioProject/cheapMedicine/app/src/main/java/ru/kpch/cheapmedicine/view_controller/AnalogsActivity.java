@@ -66,6 +66,8 @@ public class AnalogsActivity extends AppActivity {
 
         drugNameField.setText(appLogic.getSelectedDrug().getName());
 
+        appLogic.getSelectedDrug().clearPrice();
+
         analogsList =(ListView)findViewById(R.id.lv_analogsList);
         try {
             analogsListAdapter = new SimpleAdapter(this, appLogic.getSelectedDrug().getAnalogsListForAdapter(), R.layout.list_item_analogs, new String[]{AppLogicImpl.KEY_ANALOGNAME,AppLogicImpl.KEY_PRICE,AppLogicImpl.KEY_ANALOG_IN},new int[]{R.id.mi_analogName, R.id.mi_price, R.id.tv_analogIn});
