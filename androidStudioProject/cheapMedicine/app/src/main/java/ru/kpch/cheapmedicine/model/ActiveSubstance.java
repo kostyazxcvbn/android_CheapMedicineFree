@@ -1,11 +1,5 @@
 package ru.kpch.cheapmedicine.model;
 
-import java.io.Serializable;
-
-/**
- * Created by user on 19.06.2017.
- */
-
 public class ActiveSubstance{
     private int id;
     private String name;

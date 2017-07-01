@@ -107,7 +107,9 @@ public class Drugstore {
             doc= Jsoup.connect(httpReq).timeout(10000).get();
         }
         catch(Exception e){
-            return context.getString(R.string.messageNoData);
+            price=context.getString(R.string.messageNoData);
+            drug.setPrice(price);
+            return price;
         }
 
         if(doc!=null ){
@@ -118,7 +120,9 @@ public class Drugstore {
                 return price;
             }
         }
-        return context.getString(R.string.messageNoData);
+        price=context.getString(R.string.messageNoData);
+        drug.setPrice(price);
+        return price;
     }
 
     private String correctPrice(String price){

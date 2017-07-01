@@ -17,10 +17,6 @@ import ru.kpch.cheapmedicine.R;
 import ru.kpch.cheapmedicine.interfaces.IAppLogic;
 import ru.kpch.cheapmedicine.model.AppLogicImpl;
 
-/**
- * Created by kostyazxcvbn on 20.06.2017.
- */
-
 public abstract class AppActivity extends AppCompatActivity {
     protected IAppLogic appLogic = AppLogicImpl.getInstance();
     protected boolean isAppWillBeClosed;

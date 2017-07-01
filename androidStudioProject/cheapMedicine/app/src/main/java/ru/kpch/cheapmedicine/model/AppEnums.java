@@ -1,9 +1,5 @@
 package ru.kpch.cheapmedicine.model;
 
-/**
- * Created by kostyazxcvbn on 18.06.2017.
- */
-
 public final class AppEnums {
     public enum UpdateState {
         NO_UPDATES,

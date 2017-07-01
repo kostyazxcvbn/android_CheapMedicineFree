@@ -73,7 +73,7 @@
     <string name="messageNoUpdates">Новых обновлений нет</string>
     <string name="messageRequestAccepted">Ваша заявка принята</string>
     <string name="messageNoData">
-        нет данных
+        н/д
     </string>
     <string name="messageConnectionInitializationException">The field \'connection\' is not null</string>
     <string name="messageConnectionNullPointerException">Connection was not initialised</string>

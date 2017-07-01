@@ -9,10 +9,6 @@ import java.util.List;
 
 import ru.kpch.cheapmedicine.R;
 
-/**
- * Created by user on 19.06.2017.
- */
-
 public class Drug implements Serializable {
 
     private int id;

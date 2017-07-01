@@ -5,9 +5,6 @@ import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
 
-/**
- * Created by user on 30.12.2015.
- */
 public class DrugTextWatcher implements android.text.TextWatcher {
     public EditText editText1;
     public EditText editText2;
