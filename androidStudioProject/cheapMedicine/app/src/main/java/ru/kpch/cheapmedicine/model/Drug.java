@@ -80,16 +80,15 @@ public class Drug implements Serializable {
     }
 
     public List<HashMap<String,?>> getAnalogsListForAdapter() {
-        HashMap<String,Object> analogsMap = new HashMap<>();
         Context context = AppLogicImpl.getInstance().getAppContext();
-
-        for (Drug analog : analogs) {
-            analogsMap.put(AppLogicImpl.KEY_ANALOGNAME, analog);
-            analogsMap.put(AppLogicImpl.KEY_PRICE,analog.getPrice());
-            analogsMap.put(AppLogicImpl.KEY_ANALOG_IN, (analog.getActiveSubstance().equals(activeSubstance)?context.getString(R.string.textFarmgroupActiveSubstanceAnalog):context.getString(R.string.textFarmgroupAnalog)));
-        }
         List<HashMap<String,?>> analogsList = new ArrayList<>();
-        analogsList.add(analogsMap);
+        for (Drug analog : analogs) {
+            HashMap<String,Object> analogMap = new HashMap<>();
+            analogMap.put(AppLogicImpl.KEY_ANALOGNAME, analog);
+            analogMap.put(AppLogicImpl.KEY_PRICE,analog.getPrice());
+            analogMap.put(AppLogicImpl.KEY_ANALOG_IN, (analog.getActiveSubstance().equals(activeSubstance)?context.getString(R.string.textFarmgroupActiveSubstanceAnalog):context.getString(R.string.textFarmgroupAnalog)));
+            analogsList.add(analogMap);
+        }
         return analogsList;
     }
 
